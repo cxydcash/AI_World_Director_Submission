@@ -1,0 +1,559 @@
+{
+  "map": {
+    "width": 100.0,
+    "height": 100.0
+  },
+  "time": 11982.337649086285,
+  "player": {
+    "x": 40.0,
+    "y": 40.0,
+    "inventory": [],
+    "money": 100.0,
+    "energy": 100.0,
+    "strength": 0.0,
+    "fitness": 0.0,
+    "escape_probability": 0.33
+  },
+  "npcs": [
+    {
+      "id": "npc_1",
+      "name": "Mira",
+      "x": 20.0,
+      "y": 20.0,
+      "role": "",
+      "personality": [],
+      "background": "",
+      "vision_range": 5.0,
+      "memory": [
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_1",
+          "observed": [
+            {
+              "type": "npc",
+              "id": "npc_3",
+              "name": "Ivy",
+              "position": [
+                20.0,
+                20.0
+              ]
+            }
+          ]
+        },
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_1",
+          "observed": [
+            {
+              "type": "npc",
+              "id": "npc_3",
+              "name": "Ivy",
+              "position": [
+                20.0,
+                20.0
+              ]
+            }
+          ]
+        },
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_1",
+          "observed": [
+            {
+              "type": "npc",
+              "id": "npc_3",
+              "name": "Ivy",
+              "position": [
+                20.0,
+                20.0
+              ]
+            }
+          ]
+        }
+      ],
+      "schedule": [
+        {
+          "start": 0.0,
+          "end": 28800.0,
+          "location": "home"
+        },
+        {
+          "start": 28800.0,
+          "end": 43200.0,
+          "location": "workplace"
+        },
+        {
+          "start": 43200.0,
+          "end": 50400.0,
+          "location": "town"
+        },
+        {
+          "start": 50400.0,
+          "end": 64800.0,
+          "location": "workplace"
+        },
+        {
+          "start": 64800.0,
+          "end": 86400.0,
+          "location": "home"
+        }
+      ],
+      "beliefs": {},
+      "relationships": {
+        "player": 0.5,
+        "npc_2": 0.7
+      },
+      "goals": [
+        "watch_items"
+      ],
+      "character_seed": {
+        "personality": [
+          "careful",
+          "kind"
+        ],
+        "long_term_goal": "protect Ren",
+        "secret": "She knows more about Ren's disappearance than she tells the player.",
+        "fear": "The player discovers the truth.",
+        "conflict": "She wants the player to find Ren, but fears the truth being revealed."
+      },
+      "position_override": null
+    },
+    {
+      "id": "npc_2",
+      "name": "Ren",
+      "x": 40.0,
+      "y": 40.0,
+      "role": "",
+      "personality": [],
+      "background": "",
+      "vision_range": 8.0,
+      "memory": [
+        {
+          "time": 10182.337649086285,
+          "source": "evidence",
+          "content": "Observed footprint evidence"
+        },
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_2",
+          "observed": [
+            {
+              "type": "player",
+              "id": "player",
+              "position": [
+                40.0,
+                40.0
+              ],
+              "inventory": []
+            }
+          ]
+        },
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_2",
+          "observed": [
+            {
+              "type": "player",
+              "id": "player",
+              "position": [
+                40.0,
+                40.0
+              ],
+              "inventory": []
+            }
+          ]
+        },
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_2",
+          "observed": [
+            {
+              "type": "player",
+              "id": "player",
+              "position": [
+                40.0,
+                40.0
+              ],
+              "inventory": []
+            }
+          ]
+        }
+      ],
+      "schedule": [
+        {
+          "start": 0.0,
+          "end": 28800.0,
+          "location": "home"
+        },
+        {
+          "start": 28800.0,
+          "end": 43200.0,
+          "location": "workplace"
+        },
+        {
+          "start": 43200.0,
+          "end": 50400.0,
+          "location": "town"
+        },
+        {
+          "start": 50400.0,
+          "end": 64800.0,
+          "location": "workplace"
+        },
+        {
+          "start": 64800.0,
+          "end": 86400.0,
+          "location": "home"
+        }
+      ],
+      "beliefs": {
+        "Ren fled north": 1.0
+      },
+      "relationships": {
+        "player": 0.3
+      },
+      "goals": [
+        "talk_to_mira",
+        "confront_player_about_false_footprints"
+      ],
+      "character_seed": {
+        "personality": [
+          "independent",
+          "restless"
+        ],
+        "long_term_goal": "return home safely",
+        "secret": "He left voluntarily but became lost.",
+        "fear": "Being forced back before finishing his journey.",
+        "conflict": "He wants to be found, but also wants freedom."
+      },
+      "position_override": [
+        40.0,
+        40.0
+      ]
+    },
+    {
+      "id": "npc_3",
+      "name": "Ivy",
+      "x": 20.0,
+      "y": 20.0,
+      "role": "",
+      "personality": [],
+      "background": "",
+      "vision_range": 6.0,
+      "memory": [
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_3",
+          "observed": [
+            {
+              "type": "npc",
+              "id": "npc_1",
+              "name": "Mira",
+              "position": [
+                20.0,
+                20.0
+              ]
+            }
+          ]
+        },
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_3",
+          "observed": [
+            {
+              "type": "npc",
+              "id": "npc_1",
+              "name": "Mira",
+              "position": [
+                20.0,
+                20.0
+              ]
+            }
+          ]
+        },
+        {
+          "time": 11982.337649086285,
+          "observer": "npc_3",
+          "observed": [
+            {
+              "type": "npc",
+              "id": "npc_1",
+              "name": "Mira",
+              "position": [
+                20.0,
+                20.0
+              ]
+            }
+          ]
+        }
+      ],
+      "schedule": [
+        {
+          "start": 0.0,
+          "end": 28800.0,
+          "location": "home"
+        },
+        {
+          "start": 28800.0,
+          "end": 43200.0,
+          "location": "workplace"
+        },
+        {
+          "start": 43200.0,
+          "end": 50400.0,
+          "location": "town"
+        },
+        {
+          "start": 50400.0,
+          "end": 64800.0,
+          "location": "workplace"
+        },
+        {
+          "start": 64800.0,
+          "end": 86400.0,
+          "location": "home"
+        }
+      ],
+      "beliefs": {},
+      "relationships": {
+        "player": 0.4
+      },
+      "goals": [
+        "rest"
+      ],
+      "character_seed": {
+        "personality": [
+          "observant",
+          "calm"
+        ],
+        "long_term_goal": "learn what happened in the forest",
+        "secret": "She saw Ren leave town.",
+        "fear": "Being blamed for Ren's disappearance.",
+        "conflict": "She wants to help Mira, but does not want to become involved."
+      },
+      "position_override": null
+    }
+  ],
+  "items": [
+    {
+      "id": "item_1",
+      "type": "key",
+      "x": 52.0,
+      "y": 50.0,
+      "holder": null
+    },
+    {
+      "id": "item_2",
+      "type": "food",
+      "x": 20.0,
+      "y": 30.0,
+      "holder": null
+    },
+    {
+      "id": "item_3",
+      "type": "tool",
+      "x": 70.0,
+      "y": 70.0,
+      "holder": null
+    }
+  ],
+  "event_history": [
+    {
+      "event_id": "event_001",
+      "time": 11982.337649086285,
+      "effects": [
+        {
+          "npc_id": "npc_2",
+          "goal": "confront_player_about_false_footprints",
+          "type": "add_goal"
+        }
+      ]
+    }
+  ],
+  "dialogues": [],
+  "quests": [
+    {
+      "quest_id": "quest_001",
+      "title": "Find Ren",
+      "giver_id": "npc_1",
+      "description": "Ren went to the forest and never returned. Mira wants you to find Ren.",
+      "target": "find Ren",
+      "reward": 50.0,
+      "status": "available"
+    }
+  ],
+  "history": [
+    {
+      "time": 10182.337649086285,
+      "actor": "player",
+      "action": "player_entered_forest",
+      "target": "forest",
+      "content": "Entered forest."
+    },
+    {
+      "time": 10182.337649086285,
+      "actor": "player",
+      "action": "player_moved",
+      "target": "move",
+      "content": "Moved from (50, 50) to (40, 40).",
+      "details": {
+        "from": [
+          50.0,
+          50.0
+        ],
+        "to": [
+          40.0,
+          40.0
+        ],
+        "distance": 14.142135623730951,
+        "time_cost": 10182.337649086285
+      }
+    },
+    {
+      "time": 10182.337649086285,
+      "actor": "player",
+      "action": "player_created_evidence",
+      "target": "footprint",
+      "content": "Created footprint evidence: footprints heading north"
+    },
+    {
+      "time": 11982.337649086285,
+      "actor": "player",
+      "action": "timeline_changed",
+      "target": "story",
+      "content": "Director adjusted the village timeline."
+    },
+    {
+      "time": 11982.337649086285,
+      "actor": "player",
+      "action": "timeline_changed",
+      "target": "story",
+      "content": "Director adjusted the village timeline."
+    },
+    {
+      "time": 11982.337649086285,
+      "actor": "player",
+      "action": "timeline_changed",
+      "target": "story",
+      "content": "Director adjusted the village timeline."
+    }
+  ],
+  "story_seeds": [],
+  "characters_state": {
+    "npc_1": {
+      "alive": true,
+      "injured": false,
+      "unconscious": false,
+      "health": 100,
+      "location": "village",
+      "rescued": false
+    },
+    "npc_2": {
+      "alive": true,
+      "injured": false,
+      "unconscious": false,
+      "health": 100,
+      "location": "forest",
+      "rescued": false
+    },
+    "npc_3": {
+      "alive": true,
+      "injured": false,
+      "unconscious": false,
+      "health": 100,
+      "location": "village",
+      "rescued": false
+    }
+  },
+  "evidence": [
+    {
+      "type": "footprint",
+      "owner": "player",
+      "location": [
+        40.0,
+        40.0
+      ],
+      "description": "footprints heading north",
+      "created_at": 10182.337649086285,
+      "investigated": false,
+      "target_belief": "Ren fled north",
+      "auto_investigated_by": [
+        "npc_2"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "time": 11982.337649086285,
+      "actor": "player",
+      "action": "create_evidence",
+      "target": "footprint",
+      "text": "Created footprint evidence: footprints heading north",
+      "raw_text": "我制造Ren向北逃跑的脚印",
+      "parsed_action": {
+        "type": "create_evidence",
+        "evidence_type": "footprint",
+        "location": [
+          40.0,
+          40.0
+        ],
+        "description": "footprints heading north",
+        "target_belief": "Ren fled north",
+        "water_applied": false
+      }
+    }
+  ],
+  "story_timeline": [
+    {
+      "id": "ren_missing",
+      "trigger_time": 28800,
+      "status": "pending"
+    },
+    {
+      "id": "mira_search",
+      "trigger_time": 43200,
+      "status": "pending"
+    },
+    {
+      "id": "villagers_find_ren",
+      "trigger_time": 64800,
+      "status": "pending"
+    },
+    {
+      "id": "ren_worsens",
+      "trigger_time": 129600,
+      "status": "pending"
+    },
+    {
+      "id": "ren_dies",
+      "trigger_time": 216000,
+      "status": "pending"
+    }
+  ],
+  "story_event_history": [],
+  "environment_state": {
+    "terrain": {
+      "village": {
+        "type": "stone",
+        "moisture": 0.1
+      },
+      "forest": {
+        "type": "soil",
+        "moisture": 0.6
+      },
+      "stone_road": {
+        "type": "stone",
+        "moisture": 0.0
+      },
+      "town": {
+        "type": "stone",
+        "moisture": 0.1
+      }
+    },
+    "weather": {
+      "rain": false,
+      "temperature": 20.0
+    },
+    "temporary_changes": []
+  }
+}

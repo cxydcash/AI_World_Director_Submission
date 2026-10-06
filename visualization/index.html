@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 开放世界</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>AI 开放世界</h1>
+      <div class="clock"><span id="world-time">第1天 00:00</span><span id="world-weather">天气：晴</span><span id="world-status">观察中</span></div>
+    </div>
+    <div class="page-tabs">
+      <button id="page-field" class="page-tab active">地图与现场</button>
+      <button id="page-log" class="page-tab">故事与记录</button>
+    </div>
+    <div class="controls">
+      <button id="toggle-world">暂停世界</button>
+      <button data-advance="1">推进 1 小时</button>
+      <button data-advance="6">推进 6 小时</button>
+      <button data-advance="24">推进 1 天</button>
+      <button id="reset-world">重置世界</button>
+      <button id="dev-toggle" class="ghost">开发者调试</button>
+    </div>
+  </header>
+
+  <main id="player-app">
+    <section class="panel" id="sec-overview">
+      <h2>世界概况</h2>
+      <div id="overview"></div>
+    </section>
+
+    <section class="panel" id="sec-people">
+      <h2>主要人物</h2>
+      <div id="people-main"></div>
+      <h3 class="sub">次要人物</h3>
+      <div id="people-side"></div>
+      <details class="bg-people"><summary>背景人物（点击展开）</summary><div id="people-bg"></div></details>
+    </section>
+
+    <section class="panel" id="sec-heard">
+      <h2>我听到的</h2>
+      <div id="heard"></div>
+    </section>
+
+    <section class="panel" id="sec-commit">
+      <h2>约定</h2>
+      <div id="commitments"></div>
+    </section>
+
+    <section class="panel map-panel" id="sec-map">
+      <h2>地图</h2>
+      <canvas id="map" width="560" height="560"></canvas>
+      <div class="map-legend">
+        <span><i class="dot player"></i>玩家</span>
+        <span><i class="dot npc"></i>关注人物</span>
+        <span><i class="dot clue"></i>关键线索</span>
+        <span class="hint">大地图只显示你关注的人与关键线索；点击可看详情</span>
+      </div>
+      <div class="focus-bar">
+        <span class="hint">关注人物：</span>
+        <div id="focus-list" class="focus-list"></div>
+        <button id="focus-auto" class="ghost">自动（主要人物）</button>
+      </div>
+    </section>
+
+    <section class="panel" id="sec-controls">
+      <h2>我的操作</h2>
+      <div class="action-column grow">
+        <h3 class="sub">移动</h3>
+        <div class="pad">
+          <button data-move="w">↑</button>
+          <button data-move="a">←</button>
+          <button data-move="s">↓</button>
+          <button data-move="d">→</button>
+        </div>
+        <div class="hint">也可以用键盘 WASD / 方向键</div>
+        <h3 class="sub">说话</h3>
+        <select id="talk-npc"></select>
+        <input id="talk-input" type="text" placeholder="想对TA说什么？">
+        <button id="talk-button">说话</button>
+        <h3 class="sub">想法</h3>
+        <input id="thought-input" type="text" placeholder="例如：我想去磨坊看看">
+        <button id="thought-button">让世界理解我的想法</button>
+        <div id="player-feedback" class="feedback"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="sec-local">
+      <h2>当地信息</h2>
+      <div id="local-info"></div>
+    </section>
+
+    <section class="panel hidden" id="sec-npc-detail">
+      <div class="detail-head"><h2 id="npc-detail-title">村民详情</h2><button id="npc-detail-close">关闭</button></div>
+      <div id="npc-detail"></div>
+    </section>
+
+    <section class="panel hidden" id="sec-clue-detail">
+      <div class="detail-head"><h2 id="clue-detail-title">线索详情</h2><button id="clue-detail-close">关闭</button></div>
+      <div id="clue-detail"></div>
+    </section>
+  </main>
+
+  <main id="log-app" class="hidden">
+    <section class="panel" id="sec-stories">
+      <h2>故事</h2>
+      <div id="stories"></div>
+    </section>
+    <section class="panel" id="sec-clues">
+      <h2>已知线索</h2>
+      <div id="clues"></div>
+    </section>
+    <section class="panel" id="sec-experience">
+      <h2>我的行为与经历</h2>
+      <div id="me-story"></div>
+    </section>
+  </main>
+
+  <section id="dev-app" class="hidden">
+    <div class="dev-bar">
+      <strong>开发者调试</strong>
+      <span class="hint">以下内容只供开发排查，玩家主界面不显示内部 ID / 原始 JSON / DSL。</span>
+    </div>
+    <section class="panel">
+      <h2>AI 编导记录（Debug）</h2>
+      <div id="debug-director"></div>
+    </section>
+    <section class="panel">
+      <h2>AI 接入状态（Debug）</h2>
+      <div id="debug-llm"></div>
+    </section>
+    <section class="panel">
+      <h2>原始事件流（Debug）</h2>
+      <div id="debug-recent"></div>
+    </section>
+    <section class="panel">
+      <h2>玩家行为日志（Debug，唯一可信来源）</h2>
+      <div id="debug-player-actions"></div>
+    </section>
+    <section class="panel">
+      <h2>内部 StoryTimeline（Debug）</h2>
+      <div id="debug-timeline"></div>
+    </section>
+    <section class="panel">
+      <h2>原始世界状态（Debug）</h2>
+      <div class="dev-bar">
+        <button class="mode-button" data-mode="debug">Debug</button>
+        <button class="mode-button" data-mode="replay">Replay</button>
+        <button class="mode-button" data-mode="simulation">Autonomous</button>
+        <button class="mode-button" data-mode="interactive">Interactive</button>
+        <button class="mode-button" data-mode="open-world">Open World</button>
+      </div>
+      <div id="debug-state"></div>
+    </section>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
+
+

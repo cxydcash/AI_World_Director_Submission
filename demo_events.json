@@ -1,0 +1,27 @@
+[
+  {
+    "time": 0.0,
+    "type": "reset",
+    "description": "Demo reset to the initial world."
+  },
+  {
+    "time": 848.5281374238571,
+    "type": "player_action",
+    "description": "Player moved from (50,50) to forest."
+  },
+  {
+    "time": 2648.528137423857,
+    "type": "evidence_created",
+    "description": "Player created fake footprint evidence."
+  },
+  {
+    "time": 2648.528137423857,
+    "type": "ai_director",
+    "description": "AI Director generated: Ren investigates the suspicious footprint."
+  },
+  {
+    "time": 22648.52813742386,
+    "type": "timeline",
+    "description": "World time advanced and story timeline was checked."
+  }
+]
